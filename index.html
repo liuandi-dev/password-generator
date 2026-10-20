@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔐 密码生成器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🔐 密码生成器</h1>
+    <p class="subtitle">本地生成，不上传，不记录——你的密码只属于你</p>
+  </header>
+
+  <main>
+    <!-- 功能①：长度可调 + 字符开关 -->
+    <section class="card">
+      <h2>① 选一选</h2>
+
+      <div class="row">
+        <label for="length">密码长度</label>
+        <span id="length-num" class="length-num">16</span>
+      </div>
+      <input type="range" id="length" min="6" max="32" value="16">
+
+      <div class="toggles">
+        <label class="toggle"><input type="checkbox" id="opt-lower" checked> 小写字母 a-z</label>
+        <label class="toggle"><input type="checkbox" id="opt-upper" checked> 大写字母 A-Z</label>
+        <label class="toggle"><input type="checkbox" id="opt-digit" checked> 数字 0-9</label>
+        <label class="toggle"><input type="checkbox" id="opt-symbol" checked> 符号 !@#$%</label>
+      </div>
+      <p id="hint" class="hint"></p>
+    </section>
+
+    <!-- 功能②③：生成 + 一键复制 -->
+    <section class="card">
+      <h2>② 生成 & 复制</h2>
+      <button id="gen-btn" class="btn-primary">生成密码</button>
+
+      <div class="result">
+        <code id="password">点上面按钮，密码会出现在这里</code>
+        <button id="copy-btn" class="btn-ghost">复制</button>
+      </div>
+      <p id="copied" class="copied"></p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://liuandi-dev.github.io/homepage/" target="_blank">← 回我的主页</a>
+    <p>Andy · 100 项目挑战 · 项目 #004</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
