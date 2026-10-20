@@ -88,7 +88,15 @@ async function copyPassword() {
 }
 
 function showCopied() {
-  $("copied").textContent = "已复制 ✓";           // ← 今天的挑战：让它 2 秒后自动消失
+  let copiedTimer = null;   // 放在函数外面，记住上一次的倒计时
+
+function showCopied() {
+  $("copied").textContent = "已复制 ✓";
+  clearTimeout(copiedTimer);                              // 先取消上一个倒计时（防连点）
+  copiedTimer = setTimeout(() => {                        // 2 秒后自动清空提示
+    $("copied").textContent = "";
+  }, 2000);
+}
 }
 
 // ===== 事件绑定 =====
